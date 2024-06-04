@@ -1,6 +1,8 @@
 import { FaEyeSlash } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import DashboardData from "./DashboardData";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 const Dashboard = () => {
     return (
@@ -10,23 +12,25 @@ const Dashboard = () => {
                 <form className="px-8 flex justify-center gap-4">
                     <div className="form-control pb-6">
                         {/* <input type="text" required name="name" placeholder="name" className="input input-bordered rounded-full" /> */}
-                        <select name="task">
+                        <label className="p-2">Tasks</label>
+                        <select name="task" className="input input-bordered border-gray-500">
+                            <option></option>
                             <option value="Sales">Sales</option>
+                            <option value="Support">Support</option>
+                            <option value="Content">Content</option>
+                            <option value="Paper_work">Paper-work</option>
                         </select>
                     </div>
-                    <div className="form-control pb-6">
-                        <input type="text" required name="photo" placeholder="photo url" className="input input-bordered rounded-full" />
+                    <div className="form-control pb-2">
+                        <label className="p-2">Hours Worked</label>
+                        <input type="numeric" required name="picture" className="input input-bordered border-gray-500" />
                     </div>
-                    <div className="form-control pb-6">
-                        <input type="email" required name="email" placeholder="email" className="input input-bordered rounded-full" />
-                    </div>
-                    <div className="form-control">
-                        <div className='flex items-center gap-4 relative'>
-                            <input type="password" required name="password" placeholder="password" className="input input-bordered rounded-full w-full" />
-                        </div>
+                    <div className="form-control pb-2">
+                        <label className="p-2">Date</label>
+                        <DatePicker name="date" className="w-full p-3 border-[1px] border-gray-500 bg-transparent rounded-lg" />
                     </div>
                     <div className="form-control">
-                        <button className="btn btn-primary rounded-full">Register</button>
+                        <input className="btn btn-primary rounded-lg mt-10" value="Add" />
                     </div>
                 </form>
             </div>
