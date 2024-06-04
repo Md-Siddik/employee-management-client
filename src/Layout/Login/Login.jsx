@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
+import Swal from 'sweetalert2'
 
 const Login = () => {
+    
     return (
         <section className="h-screen">
             <div className="h-full">
