@@ -11,6 +11,10 @@ import Dashboard from './Layout/Dashboard/Dashboard';
 import Contact from './Layout/Contact/Contact';
 import Login from './Layout/Login/Login';
 import Register from './Layout/Register/Register';
+import Payment from './Layout/Payment/Payment';
+import Employee from './Layout/Employee/Employee';
+import AllEmployee from './Layout/Employee/AllEmployee';
+import Progress from './Layout/Progress/Progress';
 
 const router = createBrowserRouter([
   {
@@ -36,7 +40,21 @@ const router = createBrowserRouter([
       {
         path: '/register',
         element: <Register></Register>
-      }
+      },
+      {
+        path: '/payment-history',
+        element: <Payment></Payment>
+      },
+      {
+        path: '/employee-list',
+        element: <Employee></Employee>
+      },{
+        path: '/all-employee-list',
+        element: <AllEmployee></AllEmployee>
+      },{
+        path: '/progress',
+        element: <Progress></Progress>
+      },
     ]
   },
 ]);

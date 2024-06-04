@@ -1,24 +1,25 @@
-import PaymentData from "./PaymentData";
-// import { Table, Thead, Tbody, Tr, Th, Td } from 'react-super-responsive-table';
-// import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css';
+import EmployeeData from "./EmployeeData";
 
-const Payment = () => {
+const Employee = () => {
     return (
-        <div>
-            <div className="container mx-auto">
-                <table className="w-full mb-10">
-                    <tr className="text-left text-xl">
-                        <th>Job Title</th>
-                        <th>Job Posting Date</th>
-                        <th>Application Deadline</th>
-                        <th>Salary Range</th>
-                    </tr>
-                    <PaymentData></PaymentData>
-                    <PaymentData></PaymentData>
-                    <PaymentData></PaymentData>
-                    <PaymentData></PaymentData>
-                </table>
-                {/* <Table>
+        <div className="container mx-auto">
+            <table className="w-full mb-10">
+                <tr className="text-left text-xl">
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Verified</th>
+                    <th>Bank Account</th>
+                    <th>Salary</th>
+                    <th>Pay</th>
+                    <th>Details</th>
+                </tr>
+                <EmployeeData></EmployeeData>
+                <EmployeeData></EmployeeData>
+                <EmployeeData></EmployeeData>
+                <EmployeeData></EmployeeData>
+                <EmployeeData></EmployeeData>
+            </table>
+            {/* <Table>
                     <Thead>
                         <Tr>
                             <Th>Job Title</Th>
@@ -44,9 +45,8 @@ const Payment = () => {
                         </Tr>
                     </Tbody>
                 </Table> */}
-            </div>
         </div>
     );
 };
 
-export default Payment;
+export default Employee;

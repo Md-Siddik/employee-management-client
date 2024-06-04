@@ -1,24 +1,24 @@
-import PaymentData from "./PaymentData";
-// import { Table, Thead, Tbody, Tr, Th, Td } from 'react-super-responsive-table';
-// import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css';
+import PaymentData from "../Payment/PaymentData";
+import AllEmployeeData from "./AllEmployeeData";
+import EmployeeData from "./EmployeeData";
 
-const Payment = () => {
+const AllEmployee = () => {
     return (
-        <div>
-            <div className="container mx-auto">
-                <table className="w-full mb-10">
-                    <tr className="text-left text-xl">
-                        <th>Job Title</th>
-                        <th>Job Posting Date</th>
-                        <th>Application Deadline</th>
-                        <th>Salary Range</th>
-                    </tr>
-                    <PaymentData></PaymentData>
-                    <PaymentData></PaymentData>
-                    <PaymentData></PaymentData>
-                    <PaymentData></PaymentData>
-                </table>
-                {/* <Table>
+        <div className="container mx-auto">
+            <table className="w-full mb-10">
+                <tr className="text-left text-xl">
+                    <th>Name</th>
+                    <th>Designation</th>
+                    <th>Make HR</th>
+                    <th>Fire</th>
+                </tr>
+                <AllEmployeeData></AllEmployeeData>
+                <AllEmployeeData></AllEmployeeData>
+                <AllEmployeeData></AllEmployeeData>
+                <AllEmployeeData></AllEmployeeData>
+                <AllEmployeeData></AllEmployeeData>
+            </table>
+            {/* <Table>
                     <Thead>
                         <Tr>
                             <Th>Job Title</Th>
@@ -44,9 +44,8 @@ const Payment = () => {
                         </Tr>
                     </Tbody>
                 </Table> */}
-            </div>
         </div>
     );
 };
 
-export default Payment;
+export default AllEmployee;

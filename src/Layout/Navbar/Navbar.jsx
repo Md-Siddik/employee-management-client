@@ -5,6 +5,10 @@ const Navbar = () => {
     const navLinks = <>
         <li><NavLink to="/">Home</NavLink></li>
         <li><NavLink to="/work-sheet">Dashboard</NavLink></li>
+        <li><NavLink to="/payment-history">Payment History</NavLink></li>
+        <li><NavLink to="/employee-list">Employee List</NavLink></li>
+        <li><NavLink to="/all-employee-list">All Employee List</NavLink></li>
+        <li><NavLink to="/progress">Progress</NavLink></li>
         <li><NavLink to="/contactUs">Contact us</NavLink></li>
     </>
 
@@ -30,7 +34,7 @@ const Navbar = () => {
                             }
                         </div>
                     } */}
-                    <div className="w-full rounded-full">
+                    <div className="btn btn-ghost btn-circle avatar tooltip tooltip-bottom z-[999]">
                         <img alt="Profile" src="" />
                     </div>
 
