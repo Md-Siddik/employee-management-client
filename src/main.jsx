@@ -15,6 +15,7 @@ import Payment from './Layout/Payment/Payment';
 import Employee from './Layout/Employee/Employee';
 import AllEmployee from './Layout/Employee/AllEmployee';
 import Progress from './Layout/Progress/Progress';
+import EmployeeDetails from './Layout/Employee/EmployeeDetails';
 
 const router = createBrowserRouter([
   {
@@ -48,13 +49,19 @@ const router = createBrowserRouter([
       {
         path: '/employee-list',
         element: <Employee></Employee>
-      },{
+      },
+      {
         path: '/all-employee-list',
         element: <AllEmployee></AllEmployee>
-      },{
+      },
+      {
         path: '/progress',
         element: <Progress></Progress>
       },
+      {
+        path: '/details',
+        element: <EmployeeDetails></EmployeeDetails>
+      }
     ]
   },
 ]);

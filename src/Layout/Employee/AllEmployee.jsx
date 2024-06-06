@@ -1,6 +1,4 @@
-import PaymentData from "../Payment/PaymentData";
 import AllEmployeeData from "./AllEmployeeData";
-import EmployeeData from "./EmployeeData";
 
 const AllEmployee = () => {
     return (

@@ -7,11 +7,11 @@ const Employee = () => {
                 <tr className="text-left text-xl">
                     <th>Name</th>
                     <th>Email</th>
-                    <th>Verified</th>
                     <th>Bank Account</th>
                     <th>Salary</th>
                     <th>Pay</th>
                     <th>Details</th>
+                    <th>Verified</th>
                 </tr>
                 <EmployeeData></EmployeeData>
                 <EmployeeData></EmployeeData>
