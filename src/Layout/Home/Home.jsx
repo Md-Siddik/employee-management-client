@@ -1,8 +1,13 @@
+import Services from "../Services/Services";
+import Slider from "../Slider/Slider";
+import Testimonials from "../Testimonials/Testimonials";
 
 const Home = () => {
     return (
         <div>
-            <h1 className="text-3xl">This is home page</h1>
+            <Slider></Slider>
+            <Services></Services>
+            <Testimonials></Testimonials>
         </div>
     );
 };

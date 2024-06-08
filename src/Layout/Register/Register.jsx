@@ -54,11 +54,11 @@ const Register = () => {
                     <div className="mb-12 md:mb-0 md:w-8/12 lg:w-5/12 xl:w-5/12">
                         <form onSubmit={handleRegister}>
                             {/* <!--Sign in section--> */}
-                            <div className="form-control pb-6">
+                            <div className="form-control">
                                 <label className="px-2 pb-2 mt-4">Name</label>
                                 <input type="text" required name="name" className="input input-bordered" />
                             </div>
-                            <div className="form-control pb-6">
+                            <div className="form-control pb-5">
                                 <label className="px-2 pb-2 mt-4">Photo Url</label>
                                 <input type="text" required name="photo" className="input input-bordered" />
                             </div>
