@@ -14,6 +14,15 @@ const Register = () => {
 
     const { createUser } = useContext(AuthContext);
 
+    const date = new Date();
+    const month = date.getMonth(); // getMonth() returns 0-11
+    const monthNames = [
+        'January', 'February', 'March', 'April', 'May', 'June',
+        'July', 'August', 'September', 'October', 'November', 'December'
+    ];
+    const currentMonth = monthNames[month];
+    const currentYear = date.getFullYear();
+
     const handleRegister = e => {
         e.preventDefault();
         const form = new FormData(e.currentTarget);
@@ -23,12 +32,14 @@ const Register = () => {
         const email = form.get('email');
         const account = form.get('account');
         const salary = 0;
+        const month = currentMonth;
+        const year = currentYear;
         const designation = form.get('designation');
         const verified = false;
         const password = form.get('password');
         setRegisterError('');
 
-        const employee = { name, photo, category, email, account, salary, designation, verified }
+        const employee = { name, photo, category, email, account, salary, month, year, designation, verified }
 
         fetch('http://localhost:5000/register', {
             method: 'POST',
@@ -125,8 +136,8 @@ const Register = () => {
                                 <select name="designation" required className="input input-bordered border-gray-500">
                                     <option></option>
                                     <option value="Employee">Sales Assistant</option>
-                                    <option value="HR">Social Media executive</option>
-                                    <option value="HR">Digital Marketer</option>
+                                    <option value="Social Media Esecutive">Social Media executive</option>
+                                    <option value="Digital Marketer">Digital Marketer</option>
                                 </select>
                             </div>
                             <div className="form-control">
@@ -143,7 +154,6 @@ const Register = () => {
                     <div className="text-center lg:text-left mt-6 fle">
                         <div className="flex justify-center">
                             <input type="submit" className="inline-block rounded bg-primary px-7 pb-2.5 pt-3 text-sm font-medium uppercase text-white" value="Register" />
-                            {/* <button className="inline-block rounded bg-primary px-7 pb-2.5 pt-3 text-sm font-medium uppercase text-white hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]">Register</button> */}
                         </div>
 
                         {/* <!-- Register link --> */}
