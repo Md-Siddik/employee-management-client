@@ -22,11 +22,23 @@ const Register = () => {
         const category = form.get('job_category');
         const email = form.get('email');
         const account = form.get('account');
-        const salary = form.get('salary');
+        const salary = 0;
         const designation = form.get('designation');
+        const verified = false;
         const password = form.get('password');
         setRegisterError('');
 
+        const employee = { name, photo, category, email, account, salary, designation, verified }
+
+        fetch('http://localhost:5000/register', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(employee)
+        })
+            .then(res => res.json())
+            .then(data => console.log(data))
 
         if (password.length < 6) {
             Swal.fire({
@@ -108,10 +120,6 @@ const Register = () => {
                                 <label className="px-2 pb-2 mt-4">Bank Account No</label>
                                 <input type="text" required name="account" className="input input-bordered" />
                             </div>
-                            <div className="form-control pb-5">
-                                <label className="px-2 pb-2 mt-4">Salary</label>
-                                <input type="text" required name="salary" className="input input-bordered" />
-                            </div>
                             <div className="form-control pb-2">
                                 <label className="px-2 pb-2">Designation</label>
                                 <select name="designation" required className="input input-bordered border-gray-500">
@@ -124,10 +132,10 @@ const Register = () => {
                             <div className="form-control">
                                 <label className="px-2 pb-2 mt-4">Password</label>
                                 <div className='flex items-center gap-4 relative'>
-                                    <input className="input input-bordered w-full" type="password" name="password" />
-                                    {/* <input type={showPassword ? "text" : "password"} required name="password" placeholder="password" className="input input-bordered rounded-full w-full" />
-                                    <span className='absolute right-6' onClick={() => setShowPassword(!showPassword)}>{showPassword ? <FaEyeSlash></FaEyeSlash> : <FaEye></FaEye>}</span> */}
-                                    <span className='absolute right-6'><FaEyeSlash></FaEyeSlash></span>
+                                    <input type={showPassword ? "text" : "password"} required name="password" placeholder="password" className="input input-bordered w-full" />
+
+                                    <span className='absolute right-6' onClick={() => setShowPassword(!showPassword)}>{showPassword ? <FaEyeSlash></FaEyeSlash> : <FaEye></FaEye>}</span>
+                                    {/* <span className='absolute right-6'><FaEyeSlash></FaEyeSlash></span> */}
                                 </div>
                             </div>
                         </div>

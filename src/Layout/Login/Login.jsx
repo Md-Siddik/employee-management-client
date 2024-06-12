@@ -1,11 +1,12 @@
 import { Link } from "react-router-dom";
-import Swal from 'sweetalert2'
-import { FaGoogle } from "react-icons/fa";
+import { FaEye, FaEyeSlash, FaGoogle } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
-import { FaG } from "react-icons/fa6";
+import { useState } from "react";
 
 const Login = () => {
-    
+
+    const [showPassword, setShowPassword] = useState(false);
+
     return (
         <section className="h-screen">
             <div className="h-full">
@@ -57,15 +58,18 @@ const Login = () => {
                                     <input type="email" required name="email" placeholder="Email" className="input input-bordered" />
                                 </div>
                                 <div className="form-control">
-                                    <input type="password" required name="password" placeholder="password" className="input input-bordered" />
+                                    <input type={showPassword ? "text" : "password"} required name="password" placeholder="password" className="input input-bordered w-full relative" />
+
+                                    <span className='absolute right-48 mr-2 mt-4' onClick={() => setShowPassword(!showPassword)}>{showPassword ? <FaEyeSlash></FaEyeSlash> : <FaEye></FaEye>}</span>
                                 </div>
                             </div>
 
                             {/* <!-- Login button --> */}
                             <div className="text-center lg:text-left mt-6 fle">
                                 <div className="flex justify-center">
+
                                     <button
-                                        type="button"
+                                         type={showPassword ? "text" : "password"} required
                                         className="inline-block rounded bg-primary px-7 pb-2.5 pt-3 text-sm font-medium uppercase text-white hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
                                     >
                                         Login
