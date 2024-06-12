@@ -61,8 +61,9 @@ const router = createBrowserRouter([
         element: <Progress></Progress>
       },
       {
-        path: '/details',
-        element: <EmployeeDetails></EmployeeDetails>
+        path: '/details/:id',
+        element: <EmployeeDetails></EmployeeDetails>,
+        loader: ({params}) => fetch(`http://localhost:5000/register/${params.id}`)
       }
     ]
   },

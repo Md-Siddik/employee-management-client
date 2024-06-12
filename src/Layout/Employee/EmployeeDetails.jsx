@@ -1,14 +1,23 @@
 import { BarChart } from "@mui/x-charts";
+import { useContext } from "react";
+import { AuthContext } from "../../AuthProvider/AuthProvider";
+import { useLoaderData, useNavigate } from "react-router-dom";
 
 const EmployeeDetails = () => {
+
+    const { user } = useContext(AuthContext);
+    const navigate = useNavigate();
+    const employeeDetails = useLoaderData();
+    const {_id, name, photo, category, email, account, salary, designation, verified} = employeeDetails;
+
     return (
-        <div className="flex">
+        <div className="flex items-end">
             <div className="text-center w-[30%]">
                 <div className="flex justify-center">
-                    <img src="https://i.ibb.co/HTGzX0D/images-q-tbn-ANd9-Gc-QZRNEWw-Xc-h-TJYhb-So-OOng-Nj-Bl5-Fk-Tpkt4-O63-LFYx-SCOks-EJQVIRt-Ks-GGg-Isd-MO.png" alt="" />
+                    <img src={photo} alt="Image" />
                 </div>
-                <h1 className="text-3xl font-bold">Here will be name</h1>
-                <p className="text-xl">COO of EM-Espial</p>
+                <h1 className="text-3xl font-bold">{name}</h1>
+                <p className="text-xl">{designation}</p>
             </div>
             <div className="w-[70%]">
                 <BarChart className="bg-red-500"
@@ -21,11 +30,11 @@ const EmployeeDetails = () => {
                     ]}
                     series={[
                         {
-                            data: [2, 5, 3, 4],
+                            data: [110, 100, 105, 150],
                         },
                     ]}
                     width={900}
-                    height={300}
+                    height={600}
                 />
             </div>
         </div>
