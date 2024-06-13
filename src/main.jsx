@@ -29,7 +29,8 @@ const router = createBrowserRouter([
       },
       {
         path: '/work-sheet',
-        element: <Dashboard></Dashboard>
+        element: <Dashboard></Dashboard>,
+        loader: () => fetch('http://localhost:5000/work-sheet')
       },
       {
         path: '/contactUs',
@@ -54,7 +55,8 @@ const router = createBrowserRouter([
       },
       {
         path: '/all-employee-list',
-        element: <AllEmployee></AllEmployee>
+        element: <AllEmployee></AllEmployee>,
+        loader: () => fetch('http://localhost:5000/register')
       },
       {
         path: '/progress',

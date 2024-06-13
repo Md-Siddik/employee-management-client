@@ -70,60 +70,6 @@ const Employee = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {/* {allEmployee?.map((employee) => (
-                        <tr key={employee._id}>
-                            <td>{employee.name}</td>
-                            <td>{employee.email}</td>
-                            <td>{employee.account}</td>
-                            <td className="pl-4">{employee.salary}</td>
-                            <td>
-                                <button
-                                    className="btn"
-                                    onClick={() => document.getElementById(`pay_modal_${employee._id}`).showModal()}
-                                    disabled={employee.verified !== 'true'}
-                                >
-                                    Pay
-                                </button>
-                                <dialog id={`pay_modal_${employee._id}`} className="modal">
-                                    <div className="modal-box">
-                                        <form onSubmit={employeeSalary} method="dialog" className="flex flex-col items-center">
-                                            <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
-                                                ✕
-                                            </button>
-                                            <h3 className="font-bold text-2xl text-center">Hello!</h3>
-                                            <input
-                                                type="number"
-                                                className="border my-2 p-2 rounded-md w-full"
-                                                placeholder="month"
-                                                name="month"
-                                            />
-                                            <input
-                                                type="text"
-                                                className="border my-2 p-2 rounded-md w-full"
-                                                placeholder="year"
-                                                name="year"
-                                            />
-                                            <input type="submit" value="Pay" className="btn w-24 text-xl font-bold" />
-                                        </form>
-                                    </div>
-                                </dialog>
-                            </td>
-                            <td>
-                                <Link to={`/details/${employee._id}`}>
-                                    <button className="btn my-1">Details</button>
-                                </Link>
-                            </td>
-                            <td>
-                                <div onClick={() => toggle(employee)}>
-                                    {employee.verified === 'true' ? (
-                                        <FaCheck className="mx-7 text-green-500" />
-                                    ) : (
-                                        <ImCross className="mx-7 text-red-500" />
-                                    )}
-                                </div>
-                            </td>
-                        </tr>
-                    ))} */}
                     {allEmployee?.map((employee) => (
                         <EmployeeData key={employee._id} employee={employee}></EmployeeData>
                     ))}

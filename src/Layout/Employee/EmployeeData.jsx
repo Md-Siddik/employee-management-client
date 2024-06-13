@@ -31,7 +31,7 @@ const EmployeeData = ({ employee }) => {
             .then((res) => res.json())
             .then((data) => {
                 if (data.modifiedCount > 0) {
-                    navigate('/employee-list'); // Programmatic navigation
+                    navigate('/employee-list');
                 }
             });
     };

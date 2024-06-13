@@ -1,18 +1,54 @@
-import { FaEyeSlash } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { useState } from "react";
 import DashboardData from "./DashboardData";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import Swal from "sweetalert2";
+import { useLoaderData } from "react-router-dom";
 
 // import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css';
 // import { Table } from "react-super-responsive-table";
 
 const Dashboard = () => {
+
+    const [startDate, setStartDate] = useState(null);
+
+    const allTask = useLoaderData();
+
+    const handleAddTask = e => {
+        e.preventDefault();
+
+        const form = e.target;
+
+        const task = form.task.value;
+        const hours_worked = form.hours_worked.value;
+        const date = form.date.value;
+
+        const newTask = { task, hours_worked, date }
+
+        fetch('http://localhost:5000/work-sheet', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(newTask)
+        })
+            .then(res => res.json())
+            .then(data => {
+                Swal.fire({
+                    title: 'Success!',
+                    text: 'Task Added Successfully',
+                    icon: 'success',
+                    confirmButtonText: 'Great'
+                })
+            })
+            
+    }
+
     return (
         <div>
             <div className="m-auto pb-12 mt-16 border-2 rounded-xl">
                 <h1 className="text-3xl my-10 text-center">Register</h1>
-                <form className="px-8 flex justify-center gap-4">
+                <form onSubmit={ handleAddTask } className="px-8 flex justify-center gap-4">
                     <div className="form-control pb-6">
                         {/* <input type="text" required name="name" placeholder="name" className="input input-bordered rounded-full" /> */}
                         <label className="p-2">Tasks</label>
@@ -26,57 +62,31 @@ const Dashboard = () => {
                     </div>
                     <div className="form-control pb-2">
                         <label className="p-2">Hours Worked</label>
-                        <input type="numeric" required name="picture" className="input input-bordered border-gray-500" />
+                        <input type="number" required name="hours_worked" className="input input-bordered border-gray-500" />
                     </div>
                     <div className="form-control pb-2">
                         <label className="p-2">Date</label>
-                        <DatePicker name="date" className="w-full p-3 border-[1px] border-gray-500 bg-transparent rounded-lg" />
+                        <DatePicker
+                             selected={startDate} onChange={(date) => setStartDate(date)} name="date"
+                            className="w-full p-3 border-[1px] border-gray-500 bg-transparent rounded-lg" />
                     </div>
                     <div className="form-control">
-                        <input className="btn btn-primary rounded-lg mt-10" value="Add" />
+                        <input className="btn btn-primary rounded-lg mt-10" type="submit" value="Add" />
                     </div>
                 </form>
             </div>
 
             <div className="container mx-auto">
-                <table className="w-full mb-10">
+                <table className="w-[1000px] mb-10 mx-auto">
                     <tr className="text-left text-xl">
-                        <th>Job Title</th>
-                        <th>Job Posting Date</th>
-                        <th>Application Deadline</th>
-                        <th>Salary Range</th>
+                        <th className="w-[300px]">Tasks</th>
+                        <th>Hours Worked</th>
+                        <th>Date</th>
                     </tr>
-                    <DashboardData></DashboardData>
-                    <DashboardData></DashboardData>
-                    <DashboardData></DashboardData>
-                    <DashboardData></DashboardData>
+                    {
+                        allTask.map(task => <DashboardData key={task._id} tasks={task}></DashboardData>)
+                    }
                 </table>
-                {/* <Table>
-                    <Thead>
-                        <Tr>
-                            <Th>Event</Th>
-                            <Th>Date</Th>
-                            <Th>Location</Th>
-                        </Tr>
-                    </Thead>
-                    <Tbody>
-                        <Tr>
-                            <Td>Tablescon</Td>
-                            <Td>9 April 2019</Td>
-                            <Td>East Annex</Td>
-                        </Tr>
-                        <Tr>
-                            <Td>Capstone Data</Td>
-                            <Td>19 May 2019</Td>
-                            <Td>205 Gorgas</Td>
-                        </Tr>
-                        <Tr>
-                            <Td>Tuscaloosa D3</Td>
-                            <Td>29 June 2019</Td>
-                            <Td>Github</Td>
-                        </Tr>
-                    </Tbody>
-                </Table> */}
             </div>
         </div>
     );

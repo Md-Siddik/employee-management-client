@@ -114,8 +114,9 @@ const Register = () => {
                                 <label className="px-2 pb-2">Job Category</label>
                                 <select name="job_category" required className="input input-bordered border-gray-500">
                                     <option></option>
-                                    <option value="Employee">Employee</option>
-                                    <option value="HR">HR</option>
+                                    <option value="Employee">Sales Assistant</option>
+                                    <option value="Social Media Esecutive">Social Media executive</option>
+                                    <option value="Digital Marketer">Digital Marketer</option>
                                 </select>
                             </div>
                             <div className="form-control">
@@ -135,9 +136,8 @@ const Register = () => {
                                 <label className="px-2 pb-2">Designation</label>
                                 <select name="designation" required className="input input-bordered border-gray-500">
                                     <option></option>
-                                    <option value="Employee">Sales Assistant</option>
-                                    <option value="Social Media Esecutive">Social Media executive</option>
-                                    <option value="Digital Marketer">Digital Marketer</option>
+                                    <option value="Employee">Employee</option>
+                                    <option value="HR">HR</option>
                                 </select>
                             </div>
                             <div className="form-control">
