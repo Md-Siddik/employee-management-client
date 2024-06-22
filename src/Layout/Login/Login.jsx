@@ -1,9 +1,10 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaEye, FaEyeSlash, FaGoogle } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
 import { useContext, useState } from "react";
-import { signInWithPopup } from "firebase/auth";
+import { getAuth, signInWithPopup } from "firebase/auth";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
+import { GoogleAuthProvider } from "firebase/auth/web-extension";
 
 const Login = () => {
 
