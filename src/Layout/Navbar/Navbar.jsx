@@ -1,13 +1,37 @@
+import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../../AuthProvider/AuthProvider";
+import UseAdmin from "../../Hook/UseAdmin";
+import UseHR from "../../Hook/UseHR";
 
 const Navbar = () => {
 
+    const { user, logOut } = useContext(AuthContext);
+
+    const [isAdmin] = UseAdmin();
+    const [isHR] = UseHR();
+
+    const handleSignOut = () => {
+        logOut()
+            .then()
+            .catch()
+    }
+
     const navLinks = <>
         <li><NavLink to="/">Home</NavLink></li>
+        {
+            isAdmin ? (
+                <li><NavLink to="/all-employee-list">All Employee List</NavLink></li>
+            ) : isHR ? (
+                <ul className="list-none flex">
+                    <li><NavLink to="/employee-list">Employee List</NavLink></li>
+                    <li><NavLink to="/payment-history">Payment History</NavLink></li>
+                </ul>
+            ) : (
+                ""
+            )
+        }
         <li><NavLink to="/work-sheet">Dashboard</NavLink></li>
-        <li><NavLink to="/payment-history">Payment History</NavLink></li>
-        <li><NavLink to="/employee-list">Employee List</NavLink></li>
-        <li><NavLink to="/all-employee-list">All Employee List</NavLink></li>
         <li><NavLink to="/progress">Progress</NavLink></li>
         <li><NavLink to="/contactUs">Contact us</NavLink></li>
     </>
@@ -25,7 +49,7 @@ const Navbar = () => {
                 </div>
                 <div className="navbar-end flex gap-4">
 
-                    {/* {
+                    {
                         user && <div className="btn btn-ghost btn-circle avatar tooltip tooltip-bottom z-[999]" data-tip={user.displayName}>
                             {
                                 user && <div className="w-full rounded-full">
@@ -33,12 +57,9 @@ const Navbar = () => {
                                 </div>
                             }
                         </div>
-                    } */}
-                    <div className="btn btn-ghost btn-circle avatar tooltip tooltip-bottom z-[999]">
-                        <img alt="Profile" src="" />
-                    </div>
+                    }
 
-                    {/* {
+                    {
                         user ?
                             <button onClick={handleSignOut} className="btn lg:block hidden">Log Out</button>
                             :
@@ -46,11 +67,8 @@ const Navbar = () => {
                                 <button className="btn btn-outline">Login</button>
                             </Link>
 
-                    } */}
-                    <Link to="/login">
-                        <button className="btn btn-outline">Login</button>
-                    </Link>
-                    
+                    }
+
                 </div>
             </div>
             <div className="dropdown">
@@ -59,21 +77,18 @@ const Navbar = () => {
                 </div>
                 <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[999] p-2 shadow bg-base-100 rounded-box w-[120px]">
                     {navLinks}
-                    {/* <Link to={'/login'}>
-                        <button className="btn">Login</button>
-                    </Link> */}
                     <Link to="/login">
                         <button className="btn">Login</button>
                     </Link>
-                    {/* {
+                    {
                         user ? <button onClick={handleSignOut} className="btn">Log Out</button> : <Link to="/login">
                             <button className="btn">Login</button>
                         </Link>
-                    } */}
+                    }
                     <Link to="/login">
                         <button className="btn">Login</button>
                     </Link>
-                    
+
                 </ul>
             </div>
         </div>
