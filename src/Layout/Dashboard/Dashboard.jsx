@@ -3,7 +3,8 @@ import DashboardData from "./DashboardData";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import Swal from "sweetalert2";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
+import { FaArrowRightLong } from "react-icons/fa6";
 
 // import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css';
 // import { Table } from "react-super-responsive-table";
@@ -25,7 +26,7 @@ const Dashboard = () => {
 
         const newTask = { task, hours_worked, date }
 
-        fetch('http://localhost:5000/work-sheet', {
+        fetch('https://em-espial-server.vercel.app/work-sheet', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -41,14 +42,14 @@ const Dashboard = () => {
                     confirmButtonText: 'Great'
                 })
             })
-            
+
     }
 
     return (
         <div>
             <div className="m-auto pb-12 mt-16 border-2 rounded-xl">
-                <h1 className="text-3xl my-10 text-center">Register</h1>
-                <form onSubmit={ handleAddTask } className="px-8 flex justify-center gap-4">
+                <h1 className="text-3xl my-10 text-center">Admin</h1>
+                <form onSubmit={handleAddTask} className="px-8 flex justify-center gap-4">
                     <div className="form-control pb-6">
                         {/* <input type="text" required name="name" placeholder="name" className="input input-bordered rounded-full" /> */}
                         <label className="p-2">Tasks</label>
@@ -67,13 +68,17 @@ const Dashboard = () => {
                     <div className="form-control pb-2">
                         <label className="p-2">Date</label>
                         <DatePicker
-                             selected={startDate} onChange={(date) => setStartDate(date)} name="date"
+                            selected={startDate} onChange={(date) => setStartDate(date)} name="date"
                             className="w-full p-3 border-[1px] border-gray-500 bg-transparent rounded-lg" />
                     </div>
                     <div className="form-control">
                         <input className="btn btn-primary rounded-lg mt-10" type="submit" value="Add" />
                     </div>
                 </form>
+
+                <Link to="/">
+                    <a className="flex justify-center items-center gap-2 mt-8">Back to home<FaArrowRightLong /></a>
+                </Link>
             </div>
 
             <div className="container mx-auto">

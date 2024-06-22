@@ -7,7 +7,7 @@ const AllEmployeeData = ({ all }) => {
     const handleFire = () => {
         const des = { designation: 'User' }
 
-        fetch(`http://localhost:5000/registers/${_id}`, {
+        fetch(`https://em-espial-server.vercel.app/registers/${_id}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json',
@@ -26,7 +26,7 @@ const AllEmployeeData = ({ all }) => {
     const handleHR = () => {
         const des = { designation: 'HR' }
 
-        fetch(`http://localhost:5000/registers/${_id}`, {
+        fetch(`https://em-espial-server.vercel.app/registers/${_id}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json',

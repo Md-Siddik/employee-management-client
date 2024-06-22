@@ -31,17 +31,25 @@ const Register = () => {
         const category = form.get('job_category');
         const email = form.get('email');
         const account = form.get('account');
-        const salary = 0;
         const month = currentMonth;
         const year = currentYear;
         const designation = form.get('designation');
+        
+        let salary = 0;
+        if(designation === 'Employee'){
+            salary = 20000;
+        }
+        else if(designation === 'HR'){
+            salary = 40000;
+        }
+
         const verified = false;
         const password = form.get('password');
         setRegisterError('');
 
         const employee = { name, photo, category, email, account, salary, month, year, designation, verified }
 
-        fetch('http://localhost:5000/register', {
+        fetch('https://em-espial-server.vercel.app/register', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

@@ -1,11 +1,63 @@
 import { Link } from "react-router-dom";
 import { FaEye, FaEyeSlash, FaGoogle } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { signInWithPopup } from "firebase/auth";
+import { AuthContext } from "../../AuthProvider/AuthProvider";
 
 const Login = () => {
 
     const [showPassword, setShowPassword] = useState(false);
+    
+    const [user, setUser] = useState(null);
+    const { signIn } = useContext(AuthContext);
+    const location = useLocation();
+    const navigate = useNavigate();
+    const auth = getAuth();
+    const googleProvider = new GoogleAuthProvider();
+
+    const handleLogin = e => {
+        try {
+            e.preventDefault();
+            const form = new FormData(e.currentTarget);
+            const email = form.get('email');
+            const password = form.get('password');
+
+            signIn(email, password)
+                .then(result => {
+                    navigate(location?.state ? location.state : '/');
+                })
+                .catch(error => {
+                    Swal.fire({
+                        title: 'Faild!',
+                        text: 'Invalid Email or Password',
+                        icon: 'error',
+                        confirmButtonText: 'Back'
+                    })
+                })
+        }
+        catch (error) {
+            console.error(error)
+        }
+    }
+    const handleGoogleSignIn = () => {
+        signInWithPopup(auth, googleProvider)
+            .then(result => {
+                const loggedInUser = result.user;
+                setUser(loggedInUser);
+                navigate(location?.state ? location.state : '/');
+                console.log(result.user)
+            })
+            .catch(error => {
+                console.error(error)
+                Swal.fire({
+                    title: 'Oops...!',
+                    text: 'Something Went Wrong',
+                    icon: 'error',
+                    confirmButtonText: 'Back'
+                })
+            })
+    }
 
     return (
         <section className="h-screen">

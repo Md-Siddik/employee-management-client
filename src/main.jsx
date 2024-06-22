@@ -16,7 +16,8 @@ import Employee from './Layout/Employee/Employee';
 import AllEmployee from './Layout/Employee/AllEmployee';
 import Progress from './Layout/Progress/Progress';
 import EmployeeDetails from './Layout/Employee/EmployeeDetails';
-import AuthProvider, { AuthContext } from './AuthProvider/AuthProvider';
+import AuthProvider from './AuthProvider/AuthProvider';
+import Admin from './Layout/Admin/Admin';
 
 const router = createBrowserRouter([
   {
@@ -26,11 +27,6 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <Home></Home>
-      },
-      {
-        path: '/work-sheet',
-        element: <Dashboard></Dashboard>,
-        loader: () => fetch('http://localhost:5000/work-sheet')
       },
       {
         path: '/contactUs',
@@ -51,12 +47,12 @@ const router = createBrowserRouter([
       {
         path: '/employee-list',
         element: <Employee></Employee>,
-        loader: () => fetch('http://localhost:5000/register')
+        loader: () => fetch('https://em-espial-server.vercel.app/register')
       },
       {
         path: '/all-employee-list',
         element: <AllEmployee></AllEmployee>,
-        loader: () => fetch('http://localhost:5000/register')
+        loader: () => fetch('https://em-espial-server.vercel.app/register')
       },
       {
         path: '/progress',
@@ -65,10 +61,26 @@ const router = createBrowserRouter([
       {
         path: '/details/:id',
         element: <EmployeeDetails></EmployeeDetails>,
-        loader: ({params}) => fetch(`http://localhost:5000/register/${params.id}`)
+        loader: ({ params }) => fetch(`https://em-espial-server.vercel.app/register/${params.id}`)
       }
     ]
   },
+  {
+    path: '/work-sheet',
+    element: <Dashboard></Dashboard>,
+    loader: () => fetch('https://em-espial-server.vercel.app/work-sheet')
+  }
+  // {
+  //   path: "/admin",
+  //   element: <Admin></Admin>,
+  //   children: [
+  //     {
+  //       path: '/work-sheet',
+  //       element: <Dashboard></Dashboard>,
+  //       loader: () => fetch('https://em-espial-server.vercel.app/work-sheet')
+  //     },
+  //   ]
+  // }
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(

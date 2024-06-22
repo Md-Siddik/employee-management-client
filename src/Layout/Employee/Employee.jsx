@@ -24,7 +24,7 @@ const Employee = () => {
     // const toggle = (employee) => {
     //     const emp = { verified: employee.verified === 'true' ? 'false' : 'true' };
 
-    //     fetch(`http://localhost:5000/register/${employee._id}`, {
+    //     fetch(`https://em-espial-server.vercel.app/register/${employee._id}`, {
     //         method: 'PATCH',
     //         headers: {
     //             'content-type': 'application/json',
