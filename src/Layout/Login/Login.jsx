@@ -5,6 +5,7 @@ import { useContext, useState } from "react";
 import { getAuth, signInWithPopup } from "firebase/auth";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import { GoogleAuthProvider } from "firebase/auth/web-extension";
+import Swal from "sweetalert2";
 
 const Login = () => {
 
@@ -74,13 +75,13 @@ const Login = () => {
 
                     {/* <!-- Right column container --> */}
                     <div className="mb-12 md:mb-0 md:w-8/12 lg:w-5/12 xl:w-5/12">
-                        <form>
+                        <form onSubmit={handleLogin}>
                             {/* <!--Sign in section--> */}
                             <div className="flex flex-row items-center justify-center">
                                 <p className="mb-0 mr-4 text-lg">Sign in with</p>
 
                                 {/* <!-- Facebook button--> */}
-                                <button
+                                <button onClick={handleGoogleSignIn}
                                     type="button"
                                     className="mx-1 h-9 w-9 rounded-full bg-primary uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] flex justify-center items-center"
                                 >
