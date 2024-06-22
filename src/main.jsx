@@ -18,6 +18,7 @@ import Progress from './Layout/Progress/Progress';
 import EmployeeDetails from './Layout/Employee/EmployeeDetails';
 import AuthProvider from './AuthProvider/AuthProvider';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import PrivetRouter from './PrivetRouter/PrivetRouter';
 
 const queryClient = new QueryClient()
 
@@ -44,16 +45,16 @@ const router = createBrowserRouter([
       },
       {
         path: '/payment-history',
-        element: <Payment></Payment>
+        element: <PrivetRouter><Payment></Payment></PrivetRouter>
       },
       {
         path: '/employee-list',
-        element: <Employee></Employee>,
+        element: <PrivetRouter><Employee></Employee></PrivetRouter>,
         loader: () => fetch('https://em-espial-server.vercel.app/register')
       },
       {
         path: '/all-employee-list',
-        element: <AllEmployee></AllEmployee>,
+        element: <PrivetRouter><AllEmployee></AllEmployee></PrivetRouter>,
         loader: () => fetch('https://em-espial-server.vercel.app/register')
       },
       {
