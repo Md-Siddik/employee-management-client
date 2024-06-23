@@ -75,10 +75,6 @@ const Dashboard = () => {
                         <input className="btn btn-primary rounded-lg mt-10" type="submit" value="Add" />
                     </div>
                 </form>
-
-                <Link to="/">
-                    <a className="flex justify-center items-center gap-2 mt-8">Back to home<FaArrowRightLong /></a>
-                </Link>
             </div>
 
             <div className="container mx-auto">

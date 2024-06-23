@@ -65,25 +65,14 @@ const router = createBrowserRouter([
         path: '/details/:id',
         element: <EmployeeDetails></EmployeeDetails>,
         loader: ({ params }) => fetch(`https://em-espial-server.vercel.app/register/${params.id}`)
+      },
+      {
+        path: '/work-sheet',
+        element: <Dashboard></Dashboard>,
+        loader: () => fetch('https://em-espial-server.vercel.app/work-sheet')
       }
     ]
-  },
-  {
-    path: '/work-sheet',
-    element: <Dashboard></Dashboard>,
-    loader: () => fetch('https://em-espial-server.vercel.app/work-sheet')
   }
-  // {
-  //   path: "/admin",
-  //   element: <Admin></Admin>,
-  //   children: [
-  //     {
-  //       path: '/work-sheet',
-  //       element: <Dashboard></Dashboard>,
-  //       loader: () => fetch('https://em-espial-server.vercel.app/work-sheet')
-  //     },
-  //   ]
-  // }
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
