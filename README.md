@@ -1,8 +1,12 @@
-# Overview
+# EM-Espial
 The Employee Management System is a web-based application designed to streamline and automate the management of employee information and payroll. The system has three distinct roles with specific permissions and functionalities: Admin, HR, and User.
+
+Check out the live website: [EM-Espial Live](https://em-espial.web.app/)
 
 # Roles and Permissions
 **Admin**
+- Admin Username : Siddik
+- Password : Aa@123456
 - Add/Update Employee Information: Can add new employees, update their details, and assign roles.
 - Change Salary: Can modify the salary details of any employee.
 - Terminate Employment: Can fire employees from the system.
