@@ -4,7 +4,7 @@ import { FaTowerBroadcast } from "react-icons/fa6";
 
 const Services = () => {
     return (
-        <div className="grid grid-cols-3 gap-12 py-16">
+        <div className="grid grid-cols-3 max-md:grid-cols-2 max-sm:grid-cols-1 gap-12 py-16">
             <div className="bg-[#006fe6] text-white p-8 text-center">
                 <div className="flex justify-center mb-4">
                     <FaBriefcase className="text-4xl"/>

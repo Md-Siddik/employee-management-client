@@ -1,7 +1,7 @@
 
 const Testimonials = () => {
     return (
-        <div className="grid grid-cols-3 gap-12 py-16 bg-gray-200">
+        <div className="grid grid-cols-3 max-md:grid-cols-2 max-sm:grid-cols-1 gap-12 py-16 bg-gray-200">
             <div className="border p-8 text-center bg-white">
                 <div className="flex justify-center mb-4">
                     <img className="w-[100px] rounded-full" src="https://i.ibb.co/HTGzX0D/images-q-tbn-ANd9-Gc-QZRNEWw-Xc-h-TJYhb-So-OOng-Nj-Bl5-Fk-Tpkt4-O63-LFYx-SCOks-EJQVIRt-Ks-GGg-Isd-MO.png" alt="" />
