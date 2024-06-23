@@ -6,6 +6,7 @@ Check out the live website: [EM-Espial Live](https://em-espial.web.app/)
 # Roles and Permissions
 **Admin**
 - Admin Username : Siddik
+- Admin Email : abusiddik9994@gmail.com
 - Password : Aa@123456
 - Add/Update Employee Information: Can add new employees, update their details, and assign roles.
 - Change Salary: Can modify the salary details of any employee.
