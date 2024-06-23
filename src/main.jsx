@@ -68,7 +68,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/work-sheet',
-        element: <Dashboard></Dashboard>,
+        element: <PrivetRouter><Dashboard></Dashboard></PrivetRouter>,
         loader: () => fetch('https://em-espial-server.vercel.app/work-sheet')
       }
     ]

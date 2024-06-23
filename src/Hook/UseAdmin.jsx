@@ -9,7 +9,7 @@ const UseAdmin = () => {
         queryKey : [user?.email, "isAdmin"],
         enabled : !loading,
         queryFn : async() => {
-            const res = await axios.get(`http://localhost:5000/register/admin/${user.email}`);
+            const res = await axios.get(`https://em-espial-server.vercel.app/register/admin/${user.email}`);
             console.log(res.data);
 
             return res?.data?.admin

@@ -9,7 +9,7 @@ const UseHR = () => {
         queryKey: [user?.email, "isHR"],
         enabled: !loading,
         queryFn: async () => {
-            const res = await axios.get(`http://localhost:5000/register/hr/${user.email}`);
+            const res = await axios.get(`https://em-espial-server.vercel.app/register/hr/${user.email}`);
             console.log(res.data);
             return res?.data?.hr
         }
