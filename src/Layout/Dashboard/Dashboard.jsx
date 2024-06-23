@@ -48,7 +48,7 @@ const Dashboard = () => {
     return (
         <div>
             <div className="m-auto pb-12 mt-16 border-2 rounded-xl">
-                <h1 className="text-3xl my-10 text-center">Admin</h1>
+                <h1 className="text-3xl my-10 text-center">Dashboard</h1>
                 <form onSubmit={handleAddTask} className="px-8 flex justify-center gap-4">
                     <div className="form-control pb-6">
                         {/* <input type="text" required name="name" placeholder="name" className="input input-bordered rounded-full" /> */}
